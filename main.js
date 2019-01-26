@@ -145,7 +145,7 @@
 
         // finish game if collision happens
         if (playerPosition.x + playerConfig.width >= nearestBarrierPosition.x && playerPosition.bottom >= nearestBarrierPosition.top) {
-            // finishGame(false);
+            finishGame(false);
         }
     };
 
