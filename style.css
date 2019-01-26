@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background-image: url("img/bg-back.png");
+    background-size: cover;
+}
+
+.field {
+    top: calc(50vh - 140px);
+    z-index: 999;
+    width: 100%;
+    background-color: #eee;
+    overflow: hidden;
+    position: relative;
+    background-image: url("img/bg.png");
+    background-size: contain;
+    background-repeat-x: repeat;
+}
+
+@keyframes slideBackground {
+    0% {background-position: 0 0;}
+    100% {background-position: -12000px 0;}
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 90px;
+    margin-left: 0;
+    background-color: transparent;
+}
+
+.barrier {
+    background-image: url("img/barrier.png");
+    background-size: 100% 105%;
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.finish {
+    background-image: url("img/finish.png");
+    background-size: 100% 130%;
+    background-repeat: no-repeat;
+}
+
+.player {
+    background-color: #bbb;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-size: cover;
+}
+
+@media only screen and (orientation: landscape) and (max-width: 768px) {
+    .field {
+        background-size: contain;
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+    .field {
+        background-size: cover;
+    }
+}
