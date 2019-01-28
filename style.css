@@ -6,20 +6,33 @@
 .container {
     height: 100vh;
     width: 100%;
-    background-image: url("img/bg-back.png");
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-top {
+    flex: 0.5;
+    background-color: #5BB2CE;
+}
+
+.bg-down {
+    flex: 0.5;
+    background-color: #663A31;
 }
 
 .field {
-    top: calc(50vh - 140px);
-    z-index: 999;
     width: 100%;
-    background-color: #eee;
     overflow: hidden;
     position: relative;
-    background-image: url("img/bg.png");
     background-size: contain;
     background-repeat-x: repeat;
+}
+
+.field-ground {
+    background-image: url("img/bg-ground.png");
+}
+.field-air {
+    background-image: url("img/bg-air.png");
 }
 
 @keyframes slideBackground {
@@ -58,16 +71,4 @@
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     background-size: cover;
-}
-
-@media only screen and (orientation: landscape) and (max-width: 768px) {
-    .field {
-        background-size: contain;
-    }
-}
-
-@media only screen and (orientation: portrait) and (max-width: 768px) {
-    .field {
-        background-size: cover;
-    }
 }

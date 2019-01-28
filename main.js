@@ -3,6 +3,7 @@
     const field = document.getElementById('field');
     let finishElement,
         level,
+        ground,
         player,
         nearestBarrier,
         nearestBarrierIndex;
@@ -49,6 +50,14 @@
 
     const setField = () => {
         field.style.height = `${fieldConfig.height}px`;
+        const air = document.createElement('div');
+        ground = document.createElement('div');
+        air.classList.add('field-air');
+        ground.classList.add('field-ground');
+        ground.style.height = `${fieldConfig.groundHeight}px`
+        air.style.height = `${fieldConfig.height - fieldConfig.groundHeight}px`
+        field.appendChild(air);
+        field.appendChild(ground);
     };
 
     const getClassNameByBlockType = (blockType) => {
@@ -109,7 +118,7 @@
         player.style.bottom = getComputedStyle(player).bottom;
 
         // stop slide animation of background
-        field.style.animation = 'none';
+        ground.style.animation = 'none';
 
         removeJumpListeners();
         addRestartListeners();
@@ -154,7 +163,7 @@
         level.style.transition = `margin-left ${levelConfig.transitionTimeForOneBlock * levelConfig.layout.length}ms linear`;
 
         // start slide animation of background
-        field.style.animation = 'slideBackground 40s linear infinite';
+        ground.style.animation = 'slideBackground 40s linear infinite';
 
         removeStartGameListeners();
         addJumpListeners();
@@ -181,7 +190,7 @@
         }, jumpTime);
     };
 
-    const createPlayer = (config) => {
+    const createPlayer = () => {
         player = document.createElement('div');
         player.classList.add('player');
         player.style.width = `${playerConfig.width}px`;
